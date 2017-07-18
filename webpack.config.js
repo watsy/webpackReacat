@@ -1,6 +1,6 @@
 const path = require('path');
 const config = {
-	entry:path.resolve(__dirname,'./app/main.js'),
+	entry:path.resolve(__dirname,'./src/main.js'),
 	output:{
 		path:path.resolve(__dirname,'./build'),
 		publicPath: "/assets/",
