@@ -9,7 +9,7 @@ class Index extends Component {
 		}
 	}
 	componentDidMount () {
-		console.log(12)
+		
 	}
 	render(){
 		
@@ -17,9 +17,10 @@ class Index extends Component {
 	}
 }
 const MainState = (state) => {
-  return {
-    
-  }
+	console.log(state)
+    return {
+	   
+  	}
 }
 export default connect(MainState)(Index)
 
