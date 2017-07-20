@@ -13,13 +13,13 @@ class Index extends Component {
 	}
 	render(){
 		
-		return <div>this is the index{this.state.name}</div>
+		return <div>this is the index{this.props.nav}</div>
 	}
 }
 const MainState = (state) => {
 	console.log(state)
     return {
-	   
+	   nav:state.detail.nav.get('currentMenu')
   	}
 }
 export default connect(MainState)(Index)

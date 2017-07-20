@@ -4,12 +4,12 @@
 import {fromJS} from 'immutable'
 export default {
   headerData: fromJS({
-    userData: JSON.parse(window._CURRENT_USER_ || '{}'),
+    userData: {},
     currentUser: {
     }
   }),
   nav:fromJS({
     // 当前菜单项
-    currentMenu:''
+    currentMenu:'hehhe'
   })
 }

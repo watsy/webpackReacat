@@ -4,18 +4,17 @@ import { Provider } from 'react-redux'
 import {browserHistory,Router, Route} from 'react-router'
 import {syncHistoryWithStore,routerReducer} from 'react-router-redux'
 import initState from './state/'
-import Index from './containers/Index'
-import Home from './containers/Home'
+import {App, Home,List}from './containers'
 import createStore from './store/'
 
-const  store = createStore(initState);
-
+const  store = createStore();
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(<Provider store = {store}>
-	<Router history={history}>
-      <Route path="/" component = {Index} >
+    <Router history={history}>
+      <Route path="/app" component={App}>
         <Route path="home" component={Home}/>
+        <Route path="list" component={List}/>
       </Route>
     </Router>
 	</Provider>,document.getElementById('content'));

@@ -1,6 +1,6 @@
 import { List, fromJS } from 'immutable'
 
-export default (state = fromJS({}), action)=>{
+export default (state ={} , action)=>{
   
       return state
 
