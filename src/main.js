@@ -11,8 +11,9 @@ const  store = createStore();
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(<Provider store = {store}>
+  
     <Router history={history}>
-      <Route path="/app" component={App}>
+      <Route path="/" component={App}>
         <Route path="home" component={Home}/>
         <Route path="list" component={List}/>
       </Route>

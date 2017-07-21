@@ -1,5 +1,6 @@
 import React , {Component}from 'react'
 import {connect} from 'react-redux'
+import { Link, browserHistory } from 'react-router'
 import styles from './index.less'
 class Index extends Component {
 	constructor (props){
@@ -12,12 +13,16 @@ class Index extends Component {
 		
 	}
 	render(){
-		
-		return <div>this is the index{this.props.nav}</div>
+		return (<div>
+			<header>
+		        <Link to="/home">Home</Link>
+		        <Link to="/list">List</Link>
+		     </header>
+		     <div>{this.props.children}</div>
+		</div>)
 	}
 }
 const MainState = (state) => {
-	console.log(state)
     return {
 	   nav:state.detail.nav.get('currentMenu')
   	}
