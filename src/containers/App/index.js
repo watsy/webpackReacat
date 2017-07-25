@@ -1,13 +1,11 @@
 import React , {Component}from 'react'
+import {toJS} from 'immutable'
 import {connect} from 'react-redux'
 import Header from '../../components/Header'
 import styles from './index.less'
 class Index extends Component {
 	constructor (props){
 		super(props);
-		this.state = {
-			name:'hello'
-		}
 	}
 	componentDidMount () {
 		
@@ -20,7 +18,7 @@ class Index extends Component {
 }
 const MainState = (state) => {
     return {
-	   
+	   nav:state.header.get('nav').toJS()
   	}
 }
 export default connect(MainState)(Index)

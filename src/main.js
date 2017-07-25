@@ -9,7 +9,7 @@ import createStore from './store/'
 import Routers from './getRouters'
 
 const  store = createStore(initState);
-console.log(store.getState())
+
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(<Provider store = {store}>

@@ -1,12 +1,19 @@
 import {fromJS} from 'immutable'
 export default {
-  detail: fromJS({
+  header: fromJS({
     userData: JSON.parse(window._CURRENT_USER_ || '{}'),
     currentUser: {
-    }
-  }),
-  list:fromJS({
-    // 当前菜单项
-    currentMenu:''
+      "name":"12"
+    },
+    nav:[
+      {"name":"home",
+        "url":"/home"
+      },
+      {
+        "name":"list",
+        "url":"/list"
+      }
+
+    ]
   })
 }
