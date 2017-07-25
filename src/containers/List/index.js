@@ -9,9 +9,9 @@ class List extends Component{
 }
 
 const MainState = (state) => {
-	console.log(state)
+	
     return {
-	   nav:state.detail.nav.get('currentMenu')
+	   
   	}
 }
 export default connect(MainState)(List)
