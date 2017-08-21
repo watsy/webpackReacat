@@ -5,9 +5,9 @@ const  HtmlWebpackPlugin= require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const config = {
-	entry:path.resolve(__dirname,'./src/main.js'),
+	entry:path.resolve(__dirname,'../src/main.js'),
 	output:{
-		path:path.resolve(__dirname,'./build'),
+		path:path.resolve(__dirname,'../build'),
 		publicPath: "/assets/",
 		filename:'bundle.js'
 	},
@@ -43,7 +43,7 @@ const config = {
 		// 	}
 		// ])
 		//清理build文件夹
-		// new CleanWebpackPlugin(['build']),
+		new CleanWebpackPlugin(['build']),
 
 		//对js进行压缩
 		// new webpack.optimize.UglifyJsPlugin({
@@ -51,21 +51,19 @@ const config = {
 	 //    }),
 
 		//生成html
-		// new HtmlWebpackPlugin({
-		// 	title: 'My webpack',
-		// 	filename:'index.html',
-		// 	template:'./template/index.ejs'
-		// }),
+		new HtmlWebpackPlugin({
+			title: 'My webpack'
+		}),
 
   	],
 	devServer:{
-		// contentBase: path.resolve(__dirname, "build"),//跟目录
-		// // // port:7000,//端口
-	 //    stats: "errors-only",//不重要的不要打出来
-	 //    historyApiFallback: true,  //不跳转
-  //       inline: true,  //实时刷新
+		contentBase: path.resolve(__dirname, "build"),//跟目录
+		port:7000,//端口
+	    stats: "errors-only",//不重要的不要打出来
+	    historyApiFallback: true,  //不跳转
+        inline: true,  //实时刷新
         proxy: { //代理 /api/user  变成 http://localhost:3000/api/user
-		  "/comments": "http://localhost:3000"
+		  "/api": "http://localhost:3000"
 		}
 	}
 }

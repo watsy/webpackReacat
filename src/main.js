@@ -6,12 +6,11 @@ import {syncHistoryWithStore,routerReducer} from 'react-router-redux'
 import initState from './state/'
 import {App, Home,List}from './containers'
 import createStore from './store/'
-import Routers from './getRouters'
+import 'antd/dist/antd.less'
 
 const  store = createStore(initState);
 
 const history = syncHistoryWithStore(browserHistory, store)
-
 render(<Provider store = {store}>
     <Router history={history}>
       <Route path="/" component={App}>
@@ -20,4 +19,4 @@ render(<Provider store = {store}>
         <Route path="list" component={List}/>
       </Route>
     </Router>
-	</Provider>,document.getElementById('content'));
+	</Provider>,document.getElementById('root'));

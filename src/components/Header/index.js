@@ -15,9 +15,10 @@ export default class  extends Component{
 	}
 	render(){
 		return (
-			<header>
+			<div className="header">
+			<span className="imgs"></span>
 			{this.getrouters()}
-		     </header>)
+		     </div>)
 	}
 }
 
