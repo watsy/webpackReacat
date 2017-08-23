@@ -1,7 +1,7 @@
 const  path=require('path'); 
 
 const fs = require('fs');
-const CONTAINERS_PATH = path.join(__dirname,"../date")
+const CONTAINERS_PATH = path.join(__dirname,"../mock")
 function getset(startPath){
 	let result=[];
     function finder(paths) {

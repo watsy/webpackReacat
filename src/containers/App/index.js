@@ -11,7 +11,7 @@ class Index extends Component {
 	componentDidMount () {
 		let actdata = {'num':'kys','sex':'nv'};
 
-		this.requset('/list',actdata);
+		// this.requset('/list',actdata);
 	}
 	requset (url,datas){
 	    Fetch(url,datas).then((res)=>{

@@ -38,7 +38,8 @@ const config = {
 	 //    new newplugins(),
   //   	new CopyWebpackPlugin([
 		// 	{
-  //               from: __dirname +'/date'
+  //               from: __dirname +'/date',
+  //               to:__dirname+'/mock'
 			    
 		// 	}
 		// ])

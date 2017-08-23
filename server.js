@@ -13,12 +13,11 @@ let server = new WebpackDevServer(compiler, {
     inline: true,  //实时刷新
 });
 
-
 let  paths = getpath();
 for(var i =0;i<paths.length;i++){
-	let newlist =paths[i].substring(paths[i].indexOf('date')+4);
+	let newlist =paths[i].substring(paths[i].indexOf('mock')+4);
 	let lists  = newlist.substr(0,newlist.indexOf('.'));
-	server.app.post(lists, function(req, res) {
+	server.app.use(lists, function(req, res) {
 		for(var j=0;j<paths.length;j++){
 			if(paths[j].indexOf(lists)>0){
 				var  newPath = paths[j];
@@ -32,6 +31,17 @@ for(var i =0;i<paths.length;i++){
 	        }
 	    });
     });
-}
-
+}	
 server.app.listen(7000);
+
+// //自动启动浏览器url127.0.0.1:7000
+let child_process = require('child_process');
+let url = 'http://127.0.0.1:7000';
+	if (process.platform == 'wind32') {
+	  cmd = 'start "%ProgramFiles%\Internet Explorer\iexplore.exe"';
+	} else if (process.platform == 'linux') {
+	  cmd = 'xdg-open';
+	} else if (process.platform == 'darwin') {
+	  cmd = 'open';
+	}
+	child_process.exec(`${cmd} "${url}"`);

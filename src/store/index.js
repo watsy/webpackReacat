@@ -1,5 +1,6 @@
 
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers ,applyMiddleware} from 'redux'
+import thunk from 'redux-thunk';
 import {  routerReducer } from 'react-router-redux'
 import * as reducers from "../reducers"
 
@@ -9,6 +10,6 @@ const rootReducer = combineReducers({
 })
 
 export default (initState) => {
-  const store = createStore(rootReducer,initState);
+  const store = createStore(rootReducer,initState,applyMiddleware(thunk));
   return store
 }

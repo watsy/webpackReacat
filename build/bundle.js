@@ -20020,6 +20020,11 @@ var Index = function (_Component) {
 		value: function requset(url, datas) {
 			(0, _fetch2.default)(url, datas).then(function (res) {
 				console.log(res);
+				if (res.code == '1') {
+					console.log(2);
+				} else {
+					console.log(3);
+				}
 			}, function (req) {});
 		}
 	}, {

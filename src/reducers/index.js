@@ -1,3 +1,3 @@
 export detail from "./detail"
-export list from './list'
+export List from './list'
 export header from './header'
