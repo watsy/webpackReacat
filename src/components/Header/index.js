@@ -8,17 +8,11 @@ export default class  extends Component{
 	componentDidMount () {
 			
 	}
-	getrouters (){
-		let routers =  this.props.routes;
-		const routes = routers.map(router=><Link to={router.url} key={router.url} >{router.name}</Link>)
-		return routes;
-	}
 	render(){
 		return (
 			<div className="header">
-			<span className="imgs"></span>
-			{this.getrouters()}
-		     </div>)
+				<div className="left"><span>你好：{this.props.user.name}</span> | <a href="/logout">登出</a></div>
+		    </div>)
 	}
 }
 

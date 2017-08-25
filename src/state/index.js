@@ -3,7 +3,7 @@ export default {
   header: fromJS({
     userData: JSON.parse(window._CURRENT_USER_ || '{}'),
     currentUser: {
-      "name":"12"
+      "name":"张三2"
     },
     nav:[
       {"name":"home",
