@@ -8,11 +8,11 @@ const config = {
 	entry:path.resolve(__dirname,'./src/main.js'),
 	output:{
 		path:path.resolve(__dirname,'./build'),
-		publicPath: "/assets/",
 		filename:'bundle.js'
 	},
+	mode: 'development',
 	module:{
-		loaders:[
+		rules:[
 		{
 			test:/\.jsx?$/,
 			exclude:/node_modules/,
@@ -26,25 +26,14 @@ const config = {
 		},{ //小于8k的png或者jpg变成64为二解码
 			test: /\.(png|jpg)$/, 
 			loader: 'url-loader?limit=8192'
-		},
-		{ //小于8k的png或者jpg变成64为二解码
-			test: /\.json$/, 
-			loader: 'json-loader'
-		},
+		}
 
 		]
 	},
+
 	plugins: [
-	 //    new newplugins(),
-  //   	new CopyWebpackPlugin([
-		// 	{
-  //               from: __dirname +'/date',
-  //               to:__dirname+'/mock'
-			    
-		// 	}
-		// ])
 		//清理build文件夹
-		// new CleanWebpackPlugin(['build']),
+		new CleanWebpackPlugin(['build']),
 
 		//对js进行压缩
 		// new webpack.optimize.UglifyJsPlugin({
@@ -52,11 +41,11 @@ const config = {
 	 //    }),
 
 		//生成html
-		// new HtmlWebpackPlugin({
-		// 	title: 'My webpack',
-		// 	filename:'index.html',
-		// 	template:'./template/index.ejs'
-		// }),
+		new HtmlWebpackPlugin({
+			title: 'webpack',
+			filename:'index.html',
+			template:'./template/index.ejs'
+		}),
 
   	],
 	devServer:{
@@ -71,3 +60,5 @@ const config = {
 	}
 }
 module.exports = config;
+
+

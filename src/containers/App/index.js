@@ -1,11 +1,13 @@
 import React , {Component}from 'react'
 import {toJS} from 'immutable'
 import {connect} from 'react-redux'
+import { BrowserRouter, Route } from 'react-router-dom'
 import styles from './index.less'
 import Fetch from '../../common/fetch'
 import LeftMenu from '../../components/leftMenu'
 import Header from '../../components/Header'
 import { Layout, Breadcrumb, Icon } from 'antd'
+import{ List,Home} from '../../containers'
 const {  Content, Footer, Sider } = Layout;
 
 class Index extends Component {
@@ -58,7 +60,12 @@ class Index extends Component {
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              {this.props.children}
+	            <BrowserRouter> 
+	             	<Route path='/list' component={List}></Route>
+	            </BrowserRouter> 
+	            <BrowserRouter> 
+	             	<Route path='/home' component={Home}></Route>
+	            </BrowserRouter> 
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
