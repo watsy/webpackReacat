@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import render from 'react-dom'
 import {connect} from 'react-redux'
-import { Link ,BrowserRouter} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Icon,Menu } from 'antd'
 const SubMenu = Menu.SubMenu;
 
@@ -12,7 +12,7 @@ export default class  extends Component{
 	getrouters (){
 		let routers =  this.props.routes;
 		const routes = routers.map((router,i)=><Menu.Item key={i}>
-			 <Icon type="file" /><span>{router.name}</span>
+			 <NavLink to={router.url}><Icon type="file" /><span>{router.name}</span></NavLink>
             </Menu.Item>)
 		return routes;
 	}

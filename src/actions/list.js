@@ -4,6 +4,7 @@ import {Modal ,Button} from 'antd'
 
 const confirm = Modal.confirm;
 export const actionInitList = (url) => (dispatch, getState) => {
+  getState();
   Fetch(url).then((res)=>{
     if(res.code == '1'){
       dispatch({

@@ -1,7 +1,7 @@
 import React , {Component}from 'react'
 import {toJS} from 'immutable'
 import {connect} from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Switch, Route,withRouter } from 'react-router-dom'
 import styles from './index.less'
 import Fetch from '../../common/fetch'
 import LeftMenu from '../../components/leftMenu'
@@ -60,12 +60,11 @@ class Index extends Component {
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-	            <BrowserRouter> 
-	             	<Route path='/list' component={List}></Route>
-	            </BrowserRouter> 
-	            <BrowserRouter> 
+	            <Switch>
+	            	<Route path="/" exact component={Home} />
 	             	<Route path='/home' component={Home}></Route>
-	            </BrowserRouter> 
+	             	<Route path='/list' component={List}></Route>
+	            </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
@@ -78,9 +77,9 @@ class Index extends Component {
 const MainState = (state) => {
     return {
 	   header:state.header
-  	}
+  	}             　　
 }
-export default connect(MainState)(Index)
+export default withRouter(connect(MainState)(Index))
 
   
 
