@@ -2,12 +2,11 @@ const path  =require('path');
 const fs = require('fs');
 const  WebpackDevServer  = require('webpack-dev-server');
 const webpack  = require('webpack');
-const config = require("./webpack.config.js");
+const config = require("./webpack/webpack.dev.js");
 const getpath = require('./plugin/getRouters.js');
 let compiler = webpack(config);
 let server = new WebpackDevServer(compiler, {
 	contentBase: path.resolve(__dirname, "build"),//跟目录
-		// // port:7000,//端口
     stats: "errors-only",//不重要的不要打出来
     historyApiFallback: true,  //不跳转
     inline: true,  //实时刷新
